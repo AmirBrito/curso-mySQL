@@ -1021,20 +1021,73 @@ insert into funcionarios values (1000,'Howard','showardrr@addtoany.com','Masculi
 
 // Q1:
 
-select * from funcionarios where departamento ='Filmes' or departamento ='Roupas';
+//count full
 
-select count(*), departamento from funcionarios where departamento ='Filmes' or departamento ='Roupas'
-group by departamento order by 1;
+select count(*) from funcionarios;
+
+// analisando o db - Performance
+
+select count(*), departamento 
+from funcionarios 
+group by departamento
+order by 1;
+
+select count(*), departamento 
+from funcionarios 
+where departamento ='Filmes' 
+or departamento ='Roupas'
+group by departamento 
+order by 1;
+
+// query
+
+select * from funcionarios 
+where departamento ='Roupas' 
+or departamento ='Filmes';
 
 // Q2:
 
-select * from funcionarios where (departamento='Filmes' or departamento='Roupas') and sexo='Feminino';
+// count feminino - 491
+
+select count(*), sexo 
+from funcionarios 
+group by sexo;
+
+// count departamento
+
+select count(*), departamento
+from funcionarios
+group by departamento;
+
+departamento lar - 52
+departamento filmes - 21
+
+// query
+
+select nome, email from funcionarios 
+where (departamento='Lar' or departamento='Filmes') 
+and sexo='Feminino';
 
 // Q3:
 
-select count(*) as "Qnt de Funcionarios", departamento from funcionarios group by departamento order by 1;
+// count masculino - 484
 
-select * from funcionarios where sexo='Masculino' or departamento='Jardim';
+select count(*), sexo
+from funcionarios
+group by sexo;
+
+// count departamento jardim - 47
+
+select count(*), departamento
+from funcionarios
+group by departamento;
+
+// query
+
+select * from funcionarios
+where sexo='Masculino'
+or departamento ='Jardim'
+order by nome;
 
 
 
