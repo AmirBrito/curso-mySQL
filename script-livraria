@@ -51,6 +51,15 @@ SELECT LIVRO, PAGINAS FROM LIVROS WHERE SEXO = 'F';
 
 SELECT AUTOR, SEXO FROM LIVROS WHERE SEXO = 'M' AND (UF ='SP' OR UF ='RJ');
 
+// funções de agregação;
+
+SELECT COUNT(*) AS "Qnt de Reg. de LIVROS" FROM LIVROS; // retorna a qnt de registros;
+
+// operador GROUP BY; // retorna a qnt de registros de forma agrupada;
+
+SELECT SEXO, COUNT(*) AS "REGISTROS" FROM LIVROS GROUP BY SEXO;
+SELECT UF, COUNT(*) AS "REGISTROS" FROM LIVROS GROUP BY UF;
+
 
 
 
